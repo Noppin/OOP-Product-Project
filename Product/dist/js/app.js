@@ -151,7 +151,8 @@ function removeItemFromCart(target){
     cartItemArray.splice(index, 1);
     modifyItem(cartItemArray);
 }
-function addQuantity(size){
+function addQuantity(size, target){
+    const index = getTargetIndex(target);
     for(let i = 0; i < cartItemArray.length; i++){
         if(cartItemArray[i].size === size){
             if(cartItemArray[i].quantity < 10){
@@ -172,7 +173,7 @@ function subtractQuantity(size, target){
                 else if(cartItemArray[i].quantity === 1){
                     deleteLocalStorage(target);
                     cartItemArray.splice(i, 1);
-                    modifyItem(cartItemArray);
+                   
                 }  
 
         }
@@ -254,6 +255,7 @@ items.innerHTML = content;
 const item = items.querySelectorAll(".item");
           item.forEach(function(article){
                 article.addEventListener("click", function(e){
+                    const targetSize = e.target.parentElement.previousElementSibling.textContent;
                     if(e.target.classList.contains("close")){
                         deleteLocalStorage(e.currentTarget);
                         removeItemFromCart(e.currentTarget);
@@ -262,15 +264,17 @@ const item = items.querySelectorAll(".item");
                     else if(e.target.classList.contains("like")){
                             saveLocalStorage(e.currentTarget);
                             e.target.classList.add("liked");
-                            console.log("item saved");
                             // e.target.style.opacity = "0.6";
                             // e.target.style.cursor= "default";
                     }
                     else if(e.target.classList.contains("increment")){
-                            addQuantity(size.value);
+                        
+                            addQuantity(targetSize, e.currentTarget);
+                            modifyItem(cartItemArray);
                     }
                     else if(e.target.classList.contains("decrement")){
-                            subtractQuantity(size.value, e.currentTarget);
+                            subtractQuantity(targetSize, e.currentTarget);
+                            modifyItem(cartItemArray);
                     }
                 });
 
@@ -303,7 +307,14 @@ function addItemToCart(size){
      }
     
      else if(itemsExist){
-            addQuantity(size);
+        for(let i = 0; i < cartItemArray.length; i++){
+            if(cartItemArray[i].size === size){
+                if(cartItemArray[i].quantity < 10){
+                    cartItemArray[i].quantity++;
+                    cartItemArray[i].price = (price * cartItemArray[i].quantity).toFixed(2);
+                }   
+            }
+           } 
         }
      
     modifyItem(cartItemArray);
