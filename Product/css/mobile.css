@@ -1,0 +1,484 @@
+.amount {
+  display: flex;
+  gap: 1rem;
+  font-size: 1rem;
+  border: 2px solid rgba(255, 20, 183, 0.45);
+  text-align: center;
+  align-self: center;
+  padding: 0.2rem 1rem;
+  border-radius: 10px;
+}
+.amount .decrement, .amount .increment {
+  cursor: pointer;
+}
+.amount .decrement:hover, .amount .increment:hover {
+  color: rgba(255, 20, 183, 0.45);
+}
+
+nav .cart {
+  margin-right: 0;
+}
+
+aside {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: rgba(3, 3, 3, 0.85);
+  height: 100vh;
+  color: #fff;
+  padding: 1rem;
+  transform: translateX(100%);
+  transition: transform 0.3s linear;
+  z-index: 999;
+}
+aside .exit {
+  height: 30px;
+  width: 30px;
+  background-color: #fff;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+aside .exit .cross {
+  width: 70%;
+  height: 2px;
+  background-color: #333;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+aside .exit .cross:first-child {
+  transform: rotate(225deg);
+  top: 1px;
+}
+aside .exit .cross:last-child {
+  transform: rotate(-225deg);
+  top: -1px;
+}
+aside .exit:hover .cross:first-child {
+  transform: rotate(317deg);
+}
+aside .exit:hover .cross:last-child {
+  transform: rotate(-135deg);
+}
+aside .shopping {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+aside .shopping h2 {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ccc;
+}
+aside .shopping .items {
+  color: #333;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+aside .shopping .items .item {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background-color: #ccc;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+aside .shopping .items .item h5 {
+  font-size: 0.75rem;
+}
+aside .shopping .items .item h6 {
+  font-size: 0.68rem;
+}
+aside .shopping .items .item .itemImg {
+  width: 50px;
+  height: 50px;
+  align-self: center;
+  border-radius: 50%;
+}
+aside .shopping .items .item .details {
+  gap: 15px;
+  display: flex;
+}
+aside .shopping .items .item .details .itemInfo {
+  line-height: 1.3;
+}
+aside .shopping .items .item .details .itemInfo .amount {
+  margin-top: 0.75rem;
+  width: fit-content;
+  padding: 0.1rem 0.5rem;
+}
+aside .shopping .items .item .details .aside {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+}
+aside .shopping .items .item .details .aside .icon {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.arrow {
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgba(255, 20, 183, 0.45);
+  transform: rotate(45deg) translateX(-11px) translateY(10px);
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 2rem auto;
+}
+.container .inspect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container .inspect h1 {
+  font-size: 1.3rem;
+}
+.container .inspect .img {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.container .inspect .img .preview-img {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.container .inspect .img .preview-img * {
+  height: 50px;
+}
+.container .inspect .img .main-img {
+  position: relative;
+  width: fit-content;
+}
+.container .inspect .img .main-img .main {
+  width: 200px;
+  height: 200px;
+}
+.container .inspect .img .main-img .next-prev {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .inspect .img .main-img .arrow-container {
+  height: 30px;
+  width: 30px;
+  margin-top: 1rem;
+}
+.container .inspect .img .main-img .arrow-container .prev {
+  transform: rotate(-45deg) translateY(10px) translateX(11px);
+}
+.container .inspect .infos {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.container .inspect .infos h2 {
+  font-size: 1.3rem;
+}
+.container .inspect .infos form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.container .inspect .infos form h3 {
+  font-weight: 100;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  align-self: center;
+}
+.container .inspect .infos form select {
+  text-align: center;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 2px solid rgba(255, 20, 183, 0.45);
+  outline: none;
+  font-size: 1.2rem;
+}
+.container .inspect .infos form select option {
+  padding: 1rem;
+}
+.container .inspect .infos form .addCart {
+  padding: 1rem 0;
+  border: none;
+  position: relative;
+  border-radius: 10px;
+  background-color: rgba(255, 20, 183, 0.45);
+  cursor: pointer;
+  overflow: hidden;
+  color: #fff;
+}
+.container .inspect .infos form .addCart::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(220, 17, 159, 0.45);
+  transform: scale(2) translateX(-70%) translateY(-75%) rotate(-35deg);
+  transition: transform 0.4s linear;
+  z-index: -1;
+}
+.container .inspect .infos form .addCart:hover::before {
+  transform: scale(2) rotate(0) translateX(0) translateY(0);
+}
+
+@media screen and (max-width: 1200px) and (min-width: 600px) {
+  .amount {
+    display: flex;
+    gap: 1.2rem;
+    font-size: 1.2rem;
+    border: 2px solid rgba(255, 20, 183, 0.45);
+    text-align: center;
+    align-self: center;
+    padding: 0.2rem 1rem;
+    border-radius: 10px;
+  }
+  .amount .decrement, .amount .increment {
+    cursor: pointer;
+  }
+  .amount .decrement:hover, .amount .increment:hover {
+    color: rgba(255, 20, 183, 0.45);
+  }
+  aside {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: rgba(3, 3, 3, 0.85);
+    height: 100vh;
+    color: #fff;
+    padding: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s linear;
+    z-index: 999;
+  }
+  aside .exit {
+    height: 30px;
+    width: 30px;
+    background-color: #fff;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  aside .exit .cross {
+    width: 70%;
+    height: 2px;
+    background-color: #333;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+  }
+  aside .exit .cross:first-child {
+    transform: rotate(225deg);
+    top: 1px;
+  }
+  aside .exit .cross:last-child {
+    transform: rotate(-225deg);
+    top: -1px;
+  }
+  aside .exit:hover .cross:first-child {
+    transform: rotate(317deg);
+  }
+  aside .exit:hover .cross:last-child {
+    transform: rotate(-135deg);
+  }
+  aside .shopping {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+  }
+  aside .shopping h2 {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ccc;
+  }
+  aside .shopping .items {
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  aside .shopping .items .item {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    gap: 1rem;
+    background-color: #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  aside .shopping .items .item .itemImg {
+    width: 70px;
+    height: 70px;
+    align-self: center;
+    border-radius: 50%;
+  }
+  aside .shopping .items .item .details {
+    gap: 15px;
+    display: flex;
+  }
+  aside .shopping .items .item .details .itemInfo {
+    line-height: 1.5;
+  }
+  aside .shopping .items .item .details .itemInfo .amount {
+    margin-top: 0.75rem;
+    width: fit-content;
+    padding: 0.1rem 0.5rem;
+  }
+  aside .shopping .items .item .details .aside {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    justify-content: center;
+  }
+  aside .shopping .items .item .details .aside .icon {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 2rem auto;
+  }
+  .container .inspect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .container .inspect h1 {
+    font-size: 2rem;
+  }
+  .container .inspect .img {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .container .inspect .img .preview-img {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .container .inspect .img .preview-img * {
+    height: 100px;
+    object-fit: scale-down;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: opacity 0.5s linear;
+  }
+  .container .inspect .img .preview-img *:hover {
+    opacity: 1;
+  }
+  .container .inspect .img .main-img {
+    position: relative;
+    width: fit-content;
+  }
+  .container .inspect .img .main-img .main {
+    width: 400px;
+    height: 400px;
+    object-fit: scale-down;
+  }
+  .container .inspect .img .main-img .next-prev {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .container .inspect .img .main-img .arrow-container {
+    height: 30px;
+    width: 30px;
+    margin-top: 1rem;
+  }
+  .container .inspect .img .main-img .arrow-container .prev {
+    transform: rotate(-45deg) translateY(10px) translateX(11px);
+  }
+  .container .inspect .infos {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+  .container .inspect .infos h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 200;
+  }
+  .container .inspect .infos form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .container .inspect .infos form h3 {
+    font-weight: 100;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    align-self: center;
+  }
+  .container .inspect .infos form select {
+    text-align: center;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 2px solid rgba(255, 20, 183, 0.45);
+    outline: none;
+    font-size: 1.2rem;
+  }
+  .container .inspect .infos form select option {
+    padding: 1rem;
+  }
+  .container .inspect .infos form .addCart {
+    padding: 1rem 0;
+    border: none;
+    position: relative;
+    border-radius: 10px;
+    background-color: rgba(255, 20, 183, 0.45);
+    cursor: pointer;
+    overflow: hidden;
+    color: #fff;
+  }
+  .container .inspect .infos form .addCart::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(220, 17, 159, 0.45);
+    transform: scale(2) translateX(-70%) translateY(-75%) rotate(-35deg);
+    transition: transform 0.4s linear;
+    z-index: -1;
+  }
+  .container .inspect .infos form .addCart:hover::before {
+    transform: scale(2) rotate(0) translateX(0) translateY(0);
+  }
+}/*# sourceMappingURL=mobile.css.map */
